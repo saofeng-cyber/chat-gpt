@@ -9,11 +9,21 @@ module.exports = {
     es2021: true
   },
   extends: [
-    "plugin:vue/vue3-strongly-recommended",
+    'plugin:vue/vue3-strongly-recommended',
     '@vue/eslint-config-typescript',
-    '@vue/eslint-config-prettier/skip-formatting'
+    '@vue/eslint-config-prettier'
   ],
   parserOptions: {
-    ecmaVersion: 'latest'
+    ecmaVersion: 13,
+    parser: '@typescript-eslint/parser',
+    sourceType: 'module',
+    jsxPragma: 'React',
+    ecmaFeatures: {
+      jsx: true,
+      tsx: true
+    }
+  },
+  rules: {
+    'vue/valid-template-root': 'off'
   }
 }

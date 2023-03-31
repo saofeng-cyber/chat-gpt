@@ -19,7 +19,8 @@ export default defineConfig({
         'vue',
         {
           'naive-ui': ['useDialog', 'useMessage', 'useNotification', 'useLoadingBar']
-        }
+        },
+        'pinia'
       ],
       dts: 'custom/auto-imports.d.ts'
     }),
