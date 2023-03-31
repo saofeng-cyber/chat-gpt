@@ -7,7 +7,7 @@
     :width="240"
     :native-scrollbar="true"
   >
-    <div class="flex flex-col h-full">
+    <div class="flex flex-col h-full overflow-x-hidden transition-all">
       <div class="p-4">
         <n-button class="w-full" size="large" @click="addChat"> New Chat </n-button>
       </div>
