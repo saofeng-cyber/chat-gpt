@@ -5,7 +5,7 @@
     show-trigger
     collapse-mode="width"
     :collapsed-width="0"
-    :width="240"
+    :width="260"
     :native-scrollbar="true"
   >
     <div class="flex flex-col h-full overflow-x-hidden transition-all">
@@ -36,6 +36,7 @@ import ChatList from '@/components/ChatList.vue'
 import { useBasicLayout } from '@/hooks/useBasieLayout'
 import { ChatStore } from '@/stores/chatStore'
 import { Delete24Filled } from '@vicons/fluent'
+import { useDateFormat, useNow } from '@vueuse/core'
 export default defineComponent({
   components: {
     ChatList,
@@ -47,7 +48,12 @@ export default defineComponent({
     return {
       isMobile,
       addChat() {
-        useChatStore.ADDNEWCHAT(new Date().toLocaleString())
+        const dateTime = useDateFormat(useNow(), 'YYYY-MM-DD HH:mm:ss', { locales: 'en-US' })
+        useChatStore.ADDNEWCHAT({
+          dateTime: dateTime.value,
+          inversion: true,
+          text: '新会话'
+        })
       },
       clearChat() {
         useChatStore.CLEARLIST()

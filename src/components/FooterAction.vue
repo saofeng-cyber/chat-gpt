@@ -12,7 +12,7 @@
             <CloudDownloadOutline />
           </n-icon>
         </n-button>
-        <n-button text style="font-size: 24px">
+        <n-button text style="font-size: 24px" @click="gptTest">
           <n-icon>
             <ChatboxEllipsesOutline />
           </n-icon>
@@ -43,7 +43,8 @@ import { PaperPlane, CloudDownloadOutline, ChatboxEllipsesOutline } from '@vicon
 import { Delete20Regular } from '@vicons/fluent'
 import { useChat } from '@/hooks/useChat'
 import { useNow, useDateFormat } from '@vueuse/core'
-import { getCompletion } from '@/api'
+// import { getCompletion } from '@/api'
+import { completion, generations } from '@/config'
 export default defineComponent({
   components: {
     PaperPlane,
@@ -69,7 +70,7 @@ export default defineComponent({
         text: prompt.value
       }
       useChat().addChat(msg)
-      const res: any = await getCompletion(prompt.value)
+      const res: any = await completion(prompt.value)
       const response: string = res.data.choices[0].text
       useChat().addChat({
         dateTime: useDateFormat(useNow(), 'YYYY-MM-DD HH:mm:ss', { locales: 'en-US' }).value,
@@ -89,10 +90,17 @@ export default defineComponent({
         generateChat()
       }
     }
+
+    const gptTest = () => {
+      generations(prompt.value).then((res) => {
+        console.log(res)
+      })
+    }
     return {
       prompt,
       generateChat,
-      handlePress
+      handlePress,
+      gptTest
     }
   }
 })

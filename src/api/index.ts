@@ -1,11 +1,11 @@
-import { open_api_key } from '@/config'
+import { OPENAI_API_KEY } from '@/config'
 import axios from 'axios'
 
 const instance = axios.create({
   baseURL: 'https://api.openai.com/v1',
   headers: {
     'Content-Type': 'application/json',
-    Authorization: `Bearer ${open_api_key}`
+    Authorization: `Bearer ${OPENAI_API_KEY}`
   }
 })
 

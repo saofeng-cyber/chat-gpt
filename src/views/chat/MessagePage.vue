@@ -5,7 +5,12 @@
         <p class="text-xs text-[#b4bbc4]" :class="[inversion ? 'text-right' : 'text-left']">
           {{ dateTime }}
         </p>
-        <div class="p-2 text-black break-words rounded-md" :style="textBgStyle" v-html="text" />
+        <div
+          class="p-2 text-black break-words rounded-md"
+          :class="[inversion ? 'chatCloud' : 'gptCloud']"
+          :style="textBgStyle"
+          v-html="text"
+        />
       </div>
       <div :class="[inversion ? 'ml-2' : 'mr-2']">
         <AvatarMsg :image="inversion" />
@@ -35,3 +40,31 @@ const textBgStyle = computed((): CSSProperties => {
   }
 })
 </script>
+<style scoped lang="less">
+.chatCloud {
+  position: relative;
+  &::after {
+    content: '';
+    top: 6px;
+    right: -12px;
+    position: absolute;
+    border: 12px solid;
+    border-radius: 16px;
+    border-color: transparent transparent transparent #d2f9d1;
+    transform: rotate(88deg);
+  }
+}
+.gptCloud {
+  position: relative;
+  &::after {
+    content: '';
+    top: 6px;
+    left: -12px;
+    position: absolute;
+    border: 12px solid;
+    border-radius: 16px;
+    border-color: transparent #f4d6cb transparent transparent;
+    transform: rotate(-88deg);
+  }
+}
+</style>

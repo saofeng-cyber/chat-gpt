@@ -18,6 +18,11 @@ const router = createRouter({
           path: '/github',
           name: 'github',
           component: () => import('@/views/MyGithub.vue')
+        },
+        {
+          path: '/listModels',
+          name: 'listModels',
+          component: () => import('@/views/GptModels.vue')
         }
       ]
     }

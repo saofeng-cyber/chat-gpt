@@ -2,7 +2,7 @@ import { ChatStore } from '@/stores/chatStore'
 
 export const useChat = () => {
   const useChatStore = ChatStore()
-  const chatList = computed(() => useChatStore.CHATLIST)
+  const { CHATLIST: chatList } = storeToRefs(useChatStore)
   function addChat(chat: chat.ChatMsg) {
     useChatStore.ADDNEWCHAT(chat)
   }

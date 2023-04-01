@@ -31,6 +31,7 @@ import { MenuOption, NIcon } from 'naive-ui'
 import { Github } from '@vicons/fa'
 import { useBasicLayout } from '@/hooks/useBasieLayout'
 import { MenuSharp, ChatbubblesOutline } from '@vicons/ionicons5'
+import { TaskListLtr24Regular } from '@vicons/fluent'
 import { useRouter, useRoute } from 'vue-router'
 
 function renderIcon(icon: Component) {
@@ -49,6 +50,11 @@ const menuTopOptions: MenuOption[] = [
     label: 'Github',
     key: 'github',
     icon: renderIcon(Github)
+  },
+  {
+    label: 'GptModels',
+    key: 'listModels',
+    icon: renderIcon(TaskListLtr24Regular)
   }
 ]
 export default defineComponent({

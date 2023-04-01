@@ -31,6 +31,13 @@ export default defineConfig({
     })
   ],
   server: {
-    host: '0.0.0.0'
+    host: '0.0.0.0',
+    proxy: {
+      '/v1': {
+        target: 'https://api.openai.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/v1/, '')
+      }
+    }
   }
 })
