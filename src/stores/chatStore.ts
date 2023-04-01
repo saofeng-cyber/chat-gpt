@@ -1,9 +1,6 @@
-import { ref } from 'vue'
-import { defineStore } from 'pinia'
-
 export const ChatStore = defineStore('chat', () => {
-  const CHATLIST = ref<any[]>([])
-  function ADDNEWCHAT(chat: any) {
+  const CHATLIST = ref<Array<chat.ChatMsg>>([])
+  function ADDNEWCHAT(chat: chat.ChatMsg) {
     CHATLIST.value.push(chat)
   }
 

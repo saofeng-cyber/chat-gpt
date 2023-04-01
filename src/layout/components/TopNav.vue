@@ -1,55 +1,86 @@
 <template>
-  <n-menu
-    v-model:value="activeKey"
-    mode="horizontal"
-    :options="menuTopOptions"
-    @update:value="handleUpdateValue"
-  />
+  <div v-if="isMobile">
+    <n-popover placement="bottom" trigger="click" @update:show="handleUpdateShow">
+      <template #trigger>
+        <n-button text style="font-size: 24px">
+          <n-icon>
+            <MenuSharp />
+          </n-icon>
+        </n-button>
+      </template>
+      <n-menu
+        v-model:value="activeKey"
+        mode="vertical"
+        :options="menuTopOptions"
+        @update:value="handleUpdateValue"
+      />
+    </n-popover>
+  </div>
+  <div v-else>
+    <n-menu
+      v-model:value="activeKey"
+      mode="horizontal"
+      :options="menuTopOptions"
+      @update:value="handleUpdateValue"
+    />
+  </div>
 </template>
 
 <script lang="ts">
 import { MenuOption, NIcon } from 'naive-ui'
-import { BookOpen, Github } from '@vicons/fa'
+import { Github } from '@vicons/fa'
+import { useBasicLayout } from '@/hooks/useBasieLayout'
+import { MenuSharp, ChatbubblesOutline } from '@vicons/ionicons5'
+import { useRouter, useRoute } from 'vue-router'
 
 function renderIcon(icon: Component) {
   return () => h(NIcon, null, { default: () => h(icon) })
 }
 
-const activeKey = ref<string>('book')
+const activeKey = ref<string>('')
 
 const menuTopOptions: MenuOption[] = [
   {
-    label: '文档说明',
-    key: 'book',
-    icon: renderIcon(BookOpen)
+    label: '聊天',
+    key: 'chat',
+    icon: renderIcon(ChatbubblesOutline)
   },
   {
     label: 'Github',
     key: 'github',
     icon: renderIcon(Github)
-  },
-  {
-    label: '烟火尘埃',
-    key: 'smoke-the-fire-dust',
-    icon: renderIcon(BookOpen)
   }
 ]
 export default defineComponent({
+  components: {
+    MenuSharp
+  },
   setup() {
-    const notification = useNotification()
+    const { isMobile } = useBasicLayout()
+    const UseRouter = useRouter()
+    const UseRoute = useRoute()
+    watch(
+      () => UseRoute.name,
+      () => {
+        activeKey.value = UseRoute.name as string
+      },
+      { immediate: true }
+    )
     return {
       activeKey,
       menuTopOptions,
+      isMobile,
+      handleUpdateShow(show: boolean) {
+        console.log(show)
+      },
       handleUpdateValue(key: string) {
         activeKey.value = key
-        notification['success']({
-          content: key,
-          meta: '想不出来',
-          duration: 2500,
-          keepAliveOnHover: true
+        UseRouter.push({
+          name: key
         })
       }
     }
   }
 })
 </script>
+<style scoped lang="less"></style>

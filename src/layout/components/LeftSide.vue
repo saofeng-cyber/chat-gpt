@@ -1,5 +1,6 @@
 <template>
   <n-layout-sider
+    :position="isMobile ? 'absolute' : 'static'"
     bordered
     show-trigger
     collapse-mode="width"
@@ -32,6 +33,7 @@
 </template>
 <script lang="ts">
 import ChatList from '@/components/ChatList.vue'
+import { useBasicLayout } from '@/hooks/useBasieLayout'
 import { ChatStore } from '@/stores/chatStore'
 import { Delete24Filled } from '@vicons/fluent'
 export default defineComponent({
@@ -40,8 +42,10 @@ export default defineComponent({
     Delete24Filled
   },
   setup() {
+    const { isMobile } = useBasicLayout()
     const useChatStore = ChatStore()
     return {
+      isMobile,
       addChat() {
         useChatStore.ADDNEWCHAT(new Date().toLocaleString())
       },

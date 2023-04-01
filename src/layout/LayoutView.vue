@@ -12,6 +12,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
+import { useBasicLayout } from '@/hooks/useBasieLayout'
 import HeaderTop from './components/HeaderTop.vue'
 import LeftSide from './components/LeftSide.vue'
 import LayoutContent from './components/LayoutContent.vue'
@@ -23,9 +24,10 @@ export default defineComponent({
     LayoutContent
   },
   setup() {
-    // const notification = useNotification()
+    const { isMobile } = useBasicLayout()
     return {
-      inverted: ref(false)
+      inverted: ref(false),
+      isMobile
     }
   }
 })
