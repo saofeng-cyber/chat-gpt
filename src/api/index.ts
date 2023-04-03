@@ -13,7 +13,7 @@ export const getCompletion = (prompt: string) => {
     url: '/completions',
     method: 'post',
     data: {
-      model: 'gpt-3.5-turbo',
+      model: 'text-davinci-003',
       prompt,
       max_tokens: 1000,
       temperature: 0

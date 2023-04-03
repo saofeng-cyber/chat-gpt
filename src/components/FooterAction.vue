@@ -43,8 +43,8 @@ import { PaperPlane, CloudDownloadOutline, ChatboxEllipsesOutline } from '@vicon
 import { Delete20Regular } from '@vicons/fluent'
 import { useChat } from '@/hooks/useChat'
 import { useNow, useDateFormat } from '@vueuse/core'
-// import { getCompletion } from '@/api'
-import { completion, generations } from '@/config'
+import { getCompletion } from '@/api'
+import { generations } from '@/config'
 export default defineComponent({
   components: {
     PaperPlane,
@@ -70,8 +70,8 @@ export default defineComponent({
         text: prompt.value
       }
       useChat().addChat(msg)
-      const res: any = await completion(prompt.value)
-      const response: string = res.data.choices[0].message.content
+      const res: any = await getCompletion(prompt.value)
+      const response: string = res.data.choices[0].text
       useChat().addChat({
         dateTime: useDateFormat(useNow(), 'YYYY-MM-DD HH:mm:ss', { locales: 'en-US' }).value,
         inversion: false,
