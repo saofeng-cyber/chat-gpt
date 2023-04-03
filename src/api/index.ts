@@ -1,11 +1,10 @@
-import { OPENAI_API_KEY } from '@/config'
 import axios from 'axios'
 
 const instance = axios.create({
   baseURL: 'https://api.openai.com/v1',
   headers: {
     'Content-Type': 'application/json',
-    Authorization: `Bearer ${OPENAI_API_KEY}`
+    Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`
   }
 })
 
@@ -14,7 +13,7 @@ export const getCompletion = (prompt: string) => {
     url: '/completions',
     method: 'post',
     data: {
-      model: 'text-davinci-003',
+      model: 'gpt-3.5-turbo',
       prompt,
       max_tokens: 1000,
       temperature: 0

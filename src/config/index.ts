@@ -1,15 +1,25 @@
 import { Configuration, CreateModerationRequestInput, OpenAIApi } from 'openai'
-export const OPENAI_API_KEY = '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'
 const configuration = new Configuration({
-  apiKey: OPENAI_API_KEY
+  apiKey: import.meta.env.VITE_OPENAI_API_KEY
 })
 const openai = new OpenAIApi(configuration)
 export const completion = (prompt: string) => {
-  return openai.createCompletion({
-    model: 'text-davinci-003',
-    prompt,
+  return openai.createChatCompletion({
+    model: 'gpt-3.5-turbo',
+    messages: [
+      {
+        role: 'system',
+        content:
+          "You are ChatGPT, a large language model trained by OpenAI. Follow the user's instructions carefully. Respond using markdown."
+      },
+      {
+        role: 'user',
+        content: prompt,
+        name: 'saofeng'
+      }
+    ],
     temperature: 0.5,
-    max_tokens: 1000,
+    max_tokens: 1,
     top_p: 1,
     n: 1,
     frequency_penalty: 0,

@@ -71,7 +71,7 @@ export default defineComponent({
       }
       useChat().addChat(msg)
       const res: any = await completion(prompt.value)
-      const response: string = res.data.choices[0].text
+      const response: string = res.data.choices[0].message.content
       useChat().addChat({
         dateTime: useDateFormat(useNow(), 'YYYY-MM-DD HH:mm:ss', { locales: 'en-US' }).value,
         inversion: false,
