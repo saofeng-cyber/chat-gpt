@@ -9,8 +9,7 @@ export const completion = (prompt: string) => {
     messages: [
       {
         role: 'system',
-        content:
-          "You are ChatGPT, a large language model trained by OpenAI. Follow the user's instructions carefully. Respond using markdown."
+        content: `Create a Vue 3 component that displays a [开发项目] using pnpm, Vite, Vue 3, TypeScript, Pinia, and Vueuse tools. Use Vue 3's Composition API and <script setup> syntax to combine template, script, and style in a single .vue file. Display Chinese text in the view and include styles. Provide only the necessary code to meet these requirements without explanations or descriptions.`
       },
       {
         role: 'user',
@@ -19,7 +18,7 @@ export const completion = (prompt: string) => {
       }
     ],
     temperature: 0.5,
-    max_tokens: 1,
+    // max_tokens: 1,
     top_p: 1,
     n: 1,
     frequency_penalty: 0,
