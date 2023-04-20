@@ -4,17 +4,17 @@
       <div class="flex items-center gap-4">
         <n-button text style="font-size: 24px">
           <n-icon>
-            <Delete20Regular />
+            <Delete20Filled />
           </n-icon>
         </n-button>
         <n-button text style="font-size: 24px">
           <n-icon>
-            <CloudDownloadOutline />
+            <CloudDownload />
           </n-icon>
         </n-button>
         <n-button text style="font-size: 24px" @click="gptTest">
           <n-icon>
-            <ChatboxEllipsesOutline />
+            <ChatbubbleEllipsesSharp />
           </n-icon>
         </n-button>
       </div>
@@ -39,8 +39,8 @@
   </div>
 </template>
 <script lang="ts">
-import { PaperPlane, CloudDownloadOutline, ChatboxEllipsesOutline } from '@vicons/ionicons5'
-import { Delete20Regular } from '@vicons/fluent'
+import { PaperPlane, CloudDownload, ChatbubbleEllipsesSharp } from '@vicons/ionicons5'
+import { Delete20Filled } from '@vicons/fluent'
 import { useChat } from '@/hooks/useChat'
 import { useNow, useDateFormat } from '@vueuse/core'
 // import { getCompletion } from '@/api'
@@ -48,9 +48,9 @@ import { completion, generations } from '@/config'
 export default defineComponent({
   components: {
     PaperPlane,
-    Delete20Regular,
-    CloudDownloadOutline,
-    ChatboxEllipsesOutline
+    Delete20Filled,
+    CloudDownload,
+    ChatbubbleEllipsesSharp
   },
   setup() {
     const prompt = ref<string>('')

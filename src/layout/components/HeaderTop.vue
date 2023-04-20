@@ -12,15 +12,6 @@
           <TopNav />
         </n-notification-provider>
       </div>
-      <div v-if="!isMobile" class="flex flex-row-reverse items-center gap-4">
-        <n-text class="text-[1rem]">1.0.0</n-text>
-        <n-button text @click="changeTheme">
-          <n-icon size="24">
-            <WeatherMoon24Filled v-if="isDark" />
-            <WeatherSunny24Filled v-else />
-          </n-icon>
-        </n-button>
-      </div>
     </div>
   </n-layout-header>
 </template>
@@ -28,19 +19,14 @@
 import TopNav from './TopNav.vue'
 import ChatSvg from '@/components/icons/ChatSvg.vue'
 import { useBasicLayout } from '@/hooks/useBasieLayout'
-import { useTheme } from '@/hooks/useTheme'
-import { WeatherSunny24Filled, WeatherMoon24Filled } from '@vicons/fluent'
 import { CSSProperties } from 'vue'
 export default defineComponent({
   components: {
     TopNav,
-    ChatSvg,
-    WeatherSunny24Filled,
-    WeatherMoon24Filled
+    ChatSvg
   },
   setup() {
     const { isMobile } = useBasicLayout()
-    const isDark = ref<boolean>(false)
     const headTopStyle = computed((): CSSProperties => {
       return {
         display: 'grid',
@@ -50,15 +36,9 @@ export default defineComponent({
           : 'calc(272px - var(--side-padding)) 1fr auto'
       }
     })
-    const changeTheme = () => {
-      isDark.value = !isDark.value
-      useTheme().toggleTheme(isDark.value)
-    }
     return {
       isMobile,
-      isDark,
-      headTopStyle,
-      changeTheme
+      headTopStyle
     }
   }
 })

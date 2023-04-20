@@ -30,7 +30,7 @@
 import { MenuOption, NIcon } from 'naive-ui'
 import { Github } from '@vicons/fa'
 import { useBasicLayout } from '@/hooks/useBasieLayout'
-import { MenuSharp, ChatbubblesOutline } from '@vicons/ionicons5'
+import { MenuSharp, Chatbubbles } from '@vicons/ionicons5'
 import { TaskListLtr24Regular } from '@vicons/fluent'
 import { useRouter, useRoute } from 'vue-router'
 
@@ -44,7 +44,7 @@ const menuTopOptions: MenuOption[] = [
   {
     label: '聊天',
     key: 'chat',
-    icon: renderIcon(ChatbubblesOutline)
+    icon: renderIcon(Chatbubbles)
   },
   {
     label: 'Github',

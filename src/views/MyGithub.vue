@@ -1,19 +1,27 @@
 <template>
   <div class="development-project">
     <h1>{{ title }}</h1>
-    <p>{{ `鼠标X位置： ${x}, 鼠标Y位置：${y}` }}</p>
+    <p>
+      <n-text>
+        {{ `鼠标X位置： ${x}, 鼠标Y位置：${y}` }}
+      </n-text>
+    </p>
+    <n-space>
+      <n-input v-model:value="speakMsg" type="text"></n-input>
+      <n-button @click="speak">{{ isPlaying ? '停止' : '播放' }}</n-button>
+    </n-space>
   </div>
 </template>
 <script setup lang="ts">
-import { defineComponent } from 'vue'
-import { useMouse } from '@vueuse/core'
+import { useMouse, useSpeechSynthesis } from '@vueuse/core'
 const title = '开发项目'
+const speakMsg = ref('hello world')
 const { x, y } = useMouse()
-defineComponent({
-  name: 'DevelopmentProject',
-  setup() {
-    return { title }
-  }
+const { isPlaying, speak } = useSpeechSynthesis(speakMsg, {
+  lang: 'zh-CN',
+  pitch: 1,
+  rate: 1,
+  volume: 1
 })
 </script>
 <style scoped lang="less">

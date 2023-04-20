@@ -3,3 +3,6 @@
   --header-height: 64px;
   --footer-height: 64px;
 }
+a {
+  text-decoration: none;
+}

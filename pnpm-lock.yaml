@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@rushstack/eslint-patch': ^1.2.0
+  '@types/crypto-js': ^4.1.1
   '@types/node': ^18.14.2
   '@vicons/fa': ^0.12.0
   '@vicons/fluent': ^0.12.0
@@ -15,6 +16,7 @@ specifiers:
   autoprefixer: ^10.4.14
   axios: ^1.3.4
   chatgpt: ^5.1.3
+  crypto-js: ^4.1.1
   eslint: ^8.34.0
   eslint-plugin-vue: ^9.9.0
   husky: ^8.0.3
@@ -40,6 +42,7 @@ dependencies:
   '@vueuse/core': registry.npmmirror.com/@vueuse/core/9.13.0_vue@3.2.47
   axios: registry.npmmirror.com/axios/1.3.4
   chatgpt: registry.npmmirror.com/chatgpt/5.1.3
+  crypto-js: 4.1.1
   my-chat-api: 1.0.0
   openai: registry.npmmirror.com/openai/3.2.1
   pinia: registry.npmmirror.com/pinia/2.0.33_7h6e7cvei2rsgyre2mq4fyhehq
@@ -48,6 +51,7 @@ dependencies:
 
 devDependencies:
   '@rushstack/eslint-patch': registry.npmmirror.com/@rushstack/eslint-patch/1.2.0
+  '@types/crypto-js': 4.1.1
   '@types/node': registry.npmmirror.com/@types/node/18.15.11
   '@vicons/fa': registry.npmmirror.com/@vicons/fa/0.12.0
   '@vicons/fluent': registry.npmmirror.com/@vicons/fluent/0.12.0
@@ -299,6 +303,10 @@ packages:
     dev: true
     optional: true
 
+  /@types/crypto-js/4.1.1:
+    resolution: {integrity: sha512-BG7fQKZ689HIoc5h+6D2Dgq1fABRa0RbBWKBd9SP/MVRVXROflpm5fhwyATX5duFmbStzyzyycPB8qUYKDH3NA==}
+    dev: true
+
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
     dev: false
@@ -452,6 +460,10 @@ packages:
   /cookie/0.5.0:
     resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
     engines: {node: '>= 0.6'}
+    dev: false
+
+  /crypto-js/4.1.1:
+    resolution: {integrity: sha512-o2JlM7ydqd3Qk9CA0L4NL6mTzU2sdx96a+oOfPu8Mkl/PK51vSyoi8/rQ8NknZtk44vq15lmhAj9CIAGwgeWKw==}
     dev: false
 
   /debounce-fn/5.1.2:

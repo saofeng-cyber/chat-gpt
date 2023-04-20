@@ -1,6 +1,6 @@
 <template>
   <n-scrollbar>
-    <div v-for="(item, index) in CHATLIST" :key="index" class="mb-4">
+    <div v-for="(item, index) in CHATLIST" :key="index" class="px-4 mb-4">
       {{ item }}
     </div>
   </n-scrollbar>

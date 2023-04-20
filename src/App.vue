@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import { themeStore } from './stores/themeStore'
-
-const useThemeStore = themeStore()
-const { themeOverrides, theme } = storeToRefs(useThemeStore)
+import { useTheme } from '@/hooks/useTheme'
+const { globaltheme } = useTheme()
 </script>
 
 <template>
-  <n-config-provider class="h-full" :theme="theme" :theme-overrides="themeOverrides">
+  <n-config-provider class="h-full" :theme="globaltheme">
     <router-view v-slot="{ Component }">
       <keep-alive>
         <component :is="Component" />
