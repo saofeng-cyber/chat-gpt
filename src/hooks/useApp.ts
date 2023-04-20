@@ -14,9 +14,14 @@ export const useApp = () => {
     useAppStore.setLanguage(language)
   }
 
+  const setGptSdk = (sdk: string) => {
+    useAppStore.setGptSdk(sdk)
+  }
+
   return {
     setVersion,
     setSiderCollapsed,
-    setLanguage
+    setLanguage,
+    setGptSdk
   }
 }

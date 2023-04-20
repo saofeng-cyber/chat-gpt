@@ -26,6 +26,10 @@ export const appStore = defineStore('app-store', {
       this.language = language
       this.recordState()
     },
+    setGptSdk(sdk: string) {
+      this.sdk = sdk
+      this.recordState()
+    },
     recordState() {
       SET_LOCAL_SETTING(this.$state)
     },

@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const instance = axios.create({
-  baseURL: 'https://api.openai.com/v1',
+  baseURL: 'https://my-chat-gpt-ai-production.up.railway.app/',
   headers: {
     'Content-Type': 'application/json',
     Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`

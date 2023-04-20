@@ -8,6 +8,7 @@ export interface AppState {
   theme: Theme
   language: Language
   version: string
+  sdk: string
 }
 
 export const GET_DEFAULT_SETTING = (): AppState => {
@@ -15,7 +16,8 @@ export const GET_DEFAULT_SETTING = (): AppState => {
     siderCollapsed: false,
     theme: 'light',
     language: 'zh-CN',
-    version: '1.0.1'
+    version: '1.0.1',
+    sdk: 'saofeng'
   }
 }
 
